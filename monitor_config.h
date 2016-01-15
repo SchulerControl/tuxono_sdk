@@ -1,0 +1,14 @@
+#ifndef MONITOR_CONFIG_H_
+#define MONITOR_CONFIG_H_
+
+
+#define MON_VOLTAGE_COUNT_MAX 	7
+
+
+typedef struct _TUXONO_MONITOR_CONFIG
+{
+	float fMinVoltages[MON_VOLTAGE_COUNT_MAX];
+	float fMaxVoltages[MON_VOLTAGE_COUNT_MAX];
+} TUXONO_MONITOR_CONFIG;
+
+#endif /* MONITOR_CONFIG_H_ */

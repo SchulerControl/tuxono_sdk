@@ -1,0 +1,23 @@
+#ifndef MONITOR_DATA_H_
+#define MONITOR_DATA_H_
+
+
+#define MON_VOLTAGE_COUNT_MAX 	7
+
+
+enum _VOLTAGE_VIOLATION
+{
+	VOLTAGE_UNDERRANGE 			= 0,
+	VOLTAGE_OK 					= 1,
+	VOLTAGE_OVERRANGE 			= 2,
+};
+typedef uint8_t VOLTAGE_VIOLATION;
+
+
+typedef struct _TUXONO_MONITOR_DATA
+{
+	float fMonVoltages[MON_VOLTAGE_COUNT_MAX];
+	VOLTAGE_VIOLATION MonViolations[MON_VOLTAGE_COUNT_MAX];
+} TUXONO_MONITOR_DATA;
+
+#endif /* MONITOR_DATA_H_ */

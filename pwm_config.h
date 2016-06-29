@@ -20,8 +20,35 @@ typedef uint8_t PWM_FREQUENCY;
 
 typedef struct _TUXONO_PWM_CONFIG
 {
-	PWM_FREQUENCY ClockFrequency; 						/* PWM counter frequency */
-	uint16_t  usPeriodeClocks;  						/* Number of clocks in one PWM period */
+	PWM_FREQUENCY ClockFrequency; 						/* PWM counter frequency for all channels */
+	uint16_t  usPeriodeClocks;  						/* Number of clocks in one PWM period for all channels */
+	
+	/*
+	 * Tuxono S:
+	 * 
+	 * Channel/Bit 1: OUT_MODUL1						Extension module 1								(not used with RS485)
+	 * Channel/Bit 2: OUT_MODUL2						Extension module 2								(not used with RS485)
+	 * Channel/Bit 3: OUT_MODUL_1_ON_B					Extension module 1 - switch channel B			(not used with RS485)
+	 * Channel/Bit 4: OUT_MODUL_2_SWITCH				Extension module 2 - MOD_2_SWITCH				(do not use with RS485!)
+	 * Channel/Bit 5: OUT_OPTO_MOS1 					Optically decoupled MOSFET 1
+	 * Channel/Bit 6: OUT_OPTO_MOS2						Optically decoupled MOSFET 2
+	 * Channel/Bit 7: OUT_OPTO_MOS3 					Optically decoupled MOSFET 3
+	 * Channel/Bit 8: OUT_LED_MESS 						Measurement LED - controlled by XMEGA himself
+	 */
+
+	/*
+	 * Tuxono L:
+	 * 
+	 * Channel/Bit 1: OUT_SSR1							SolidStateRelais 1
+	 * Channel/Bit 2: OUT_SSR2							SolidStateRelais 2
+	 * Channel/Bit 3: OUT_SSR3							SolidStateRelais 3
+	 * Channel/Bit 4: OUT_SSR4							SolidStateRelais 4
+	 * Channel/Bit 5: OUT_MODUL3 						Extension module 3								(not used with RS485)
+	 * Channel/Bit 6: OUT_MODUL4						Extension module 4								(not used with RS485)
+	 * Channel/Bit 7: OUT_OPTO_MOS1 					Optically decoupled MOSFET 1
+	 * Channel/Bit 8: OUT_OPTO_MOS2 					Optically decoupled MOSFET 2
+	 */
+
 	uint8_t   ucActivePWM;								/* Enable PWM output each bit stand for one output channel */
 	uint16_t  usPWMValue[PWM_CHANNEL_COUNT_MAX];    	/* PWM value determines the ratio of the high and low phase */
 } TUXONO_PWM_CONFIG;
